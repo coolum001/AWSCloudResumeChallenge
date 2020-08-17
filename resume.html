@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./resume.css"/>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+<script>
+    function getLoadCount(){
+
+        // call an AWS gateway API, that then calls an AWS Lambda
+        // to read and then update AWS DynamoDB item showing load count
+
+        // Note call is synchronous, delays should be minimal
+        var req = new XMLHttpRequest();  
+        req.open('GET', 
+        " https://pj00kkggj8.execute-api.ap-southeast-2.amazonaws.com/beta", 
+        false);   
+        req.send();  
+        if(req.status == 200)
+            {  
+                len = req.responseText.length;
+                // response text has opening and closing double quotes
+                console.log(req.responseText.substring(1, len-1));
+                // set field in footer
+                document.getElementById("loadcount").textContent = 
+                    req.responseText.substring(10, len-2);
+            }
+        else {
+            // NOT OK response, so log in console
+            console.log(req.status)
+        }//end if
+    }// end getLoadCount
+
+    // read and write visit count into footer, then increment count in DB
+    window.onload = function(){
+
+            // side effects
+            // getLoadCount() updates field in footer, increments count in DB
+            getLoadCount();
+        }; //end window.onload
+
+
+
+</script>
+
+<body>
+    <header>
+        <h1> Don Cameron - Resume</h1>
+    </header>
+ 
+    <section>
+        <h2>Summary</h2>
+        <p>System/Security Analyst and Architect with a telecoms and software focus, 
+            in technical leadership or pre-sales roles.
+        </p>
+        <h2>Career Description</h2>
+        <p>
+            Don has nearly 30 years experience in the Software Engineering and Telecommunications industries, 
+            working in multi-national teams in technical leadership or technical pre-sales roles, 
+            in Australia, India (Bangalore), Singapore, Japan, UK, and USA. 
+        </p>
+        <p> Don most recently worked at the National E-Health Transition Authority (NEHTA) as a Solution Architect, 
+            and at Boeing, supporting AIR 5077 5A (Wedgetail AEWC Interoperability Compliance Upgrade) project ramp-up.
+        </p>
+        <p> Don has worked in the Defence industry on large communications-related Defence Projects, 
+            in a System Design Manager, or System Architect role. Examples include the 
+            RAAF Air Defence Ground Environment project (radar sensor fusion), 
+            the HF Modernisation Project (communications network management), 
+            and the Australian Army Tactical Command Support System project. 
+            These projects involved significant requirements analysis and design, 
+            and also covered Security Engineering and Safety Engineering Management tasks.            
+            
+        </p>
+        <p>A typical role was being the System Architect within an Air Defence Ground Environment (ADGE) studies team, 
+            tasked with analysing and incrementally enhancing the RAAF ADGE. 
+        </p>
+        <p>
+            Don's experience also includes developing and delivering technology transfer training, 
+            developing system architectures for automated service activation in Telco Operational Support Systems (OSS), 
+            and hands-on programming for the rapid production of prototypes and proof-of-concept systems.
+        </p>
+        <p>               
+            In a Solution Architect role with Astracon Inc., Don's experience, and his ability to transfer 
+            technology on technical topics with authority, contributed to the establishment of commercial 
+            relationships with HP, Cisco, and NTT (Japan).
+         
+            A typical engagement was the on-site interfacing of Java-based service automation systems to 
+            Cisco Optical Network Elements; Don developed a prototype on time, and 
+            delivered design and code walkthroughs to the customer's satisfaction.
+        </p><p>
+            Don has also worked for Telstra, 
+            as a Business Analyst in the Strategy and Coordination Group, Computer Support Services, Network Engineering.
+          </p>  
+        <h2>Specialties</h2>
+        <p> system security and architecture analysis; system engineering; software engineering; system analysis </p>
+    </section>
+    <hr/>
+
+
+
+
+
+    <section>
+        <h2>Professional Experience</h2>
+        <h3>Senior System Engineer, 
+            Boeing Defence Australia, 2015
+        </h3>
+        <p>Supporting AIR 5077 5A (Wedgetail AEWC Interoperability Compliance Upgrade) 
+            project ramp-up.
+            Tasks included:
+        </p>
+            <ul>
+                <li>drafting detailed Job Specification statements, 
+            based upon the Contract Statement of Work and Technical Specification</li>
+            <li>reviewing and recommending candidates for project positions based upon the Job Specifications</li>
+            <li>drafting detailed project allocation and costing models</li>
+        </ul>
+        
+
+        <h3>Solution Architect,
+            National E-Health Transition Authority, 2011 - 2012
+        </h3>
+        <p>Solution Architect for Electronic Medication Management Team.  
+            Tasks included developing detailed business process and system models, 
+            for review by the Australian Health System stakeholders.  
+            This required a detailed understanding of HL7 standards.</p>
+
+        <h3>System Architect, Boeing Australia, 2004 -2011
+        </h3>
+        <p>Don Cameron worked in the roles of Design Engineer, acting Safety Manager, 
+            Security Engineer, Analysis and Design Team Lead, and System Architect, 
+            all in the System Analysis and Integration Team.</p>
+            <p>A significant achievement was a successful Critical Design Review, 
+                providing detailed technical responses over a period of a week to 
+                queries from independent internal and external reviewers.</p>
+        <p>
+            Don's most recent role was the System Architect within an 
+            Air Defence Ground Environment (ADGE) studies team, 
+            tasked with analysing and incrementally enhancing the RAAF ADGE.  
+            This also included presentations to  RAAF ADGE operational staff, 
+            to provide an overview of the delivered system.
+        </p>
+
+        <h3>System Analyst, Queensland Health, 2003 - 2004</h3>
+        <p>
+        Technical coordination of teams in a pilot roll-out at QEII Hospital 
+        ("all observations and potential issues relating to this site are 
+        forwarded to Don Cameron for actioning. 
+        Changes in any aspect of the SOE, COE, WMT should not occur 
+        without approval of the relevant project managers and Don."). 
+        This included technical issue tracking and management (using TestDirector), 
+        and managing a Change Control Board for the site.
+        </p>
+        <p>Developing LDAP Java-based applications through the Novell NDS eDirectory.
+        </p>
+        <p>Planning for WAN monitoring to assess the impact of infrastructure deployments, 
+            and the post-deployment audit process. 
+            Developing and documenting improved technical and business 
+            processes for workstation management.
+        </p>
+        <p>Initiating the process for delivery of Enterprise Applications. 
+            This involved coordination with application managers, and 
+            recruiting specialist technical contract staff.
+        </p>
+        <h3>Solution Architect, Astracon Ltd, 2000 - 2002</h3>
+        <p>Don's responsibilities included:-</p>
+        <ul>
+        <li>Working on-site in a consultant role with large telecommunication OSS System Integrators. 
+        This required hands-on development in Java and C++, and close liaison with Australian-based 
+        product development and product support teams</li>
+        <li>Developing and documenting architectural designs for OSS integration projects. 
+            This included participating with project management to develop Project WBS, and 
+            leading requirements analysis teams</li>
+        <li>Developing technical material to allow System Integrators to rapidly be come familiar with the Astracon products. 
+            SI firms briefed included HP Japan, HP Singapore, and NTT Japan</li>
+        <li>Providing an architectural overview of Astracon products to companies such as 
+            Cisco, Telstra, Optus, NTT Japan, and TNZ</li>
+        <li>Managing and providing system administration for a portable SUN Netra X1 running Solaris and the 
+            ORACLE RDBMS; this machine was used for demonstrations and on-site development</li>
+        </ul>
+    </section>
+    <section>
+        <hr>
+        <h2>Industry Knowledge Areas</h2>
+        <p>Showing only those with 8 or more endorsements on LinkedIn</p>
+        <p>
+            System Architecture,
+            
+            Software Engineering,
+            
+            Requirements Management,
+            
+            Systems Analysis,
+            
+            Systems Design,
+            
+            Security,
+            
+            Technical Documentation,
+            
+            Testing,
+            
+            Program Management,
+            
+            Project Management,
+            
+            System Design,
+            
+            Software Development
+            </p>
+
+            <h2>Software Languages/Systems</h2>
+            <p>Areas of expertise include:</p>
+                <ul>
+                    <li>Python (including Pandas, Numpy, Cartopy)</li>
+                    <li>Java</li>
+                    <li>C, C++</li>
+                    <li>SQL</li>
+                    <li>fastai Machine Learning API</li>
+                    <li>UML</li>
+                </ul>
+            
+
+
+    </section>
+
+    <section>
+        <hr>
+        <h2>Education</h2>
+        <h3>Most Recent</h3>
+        <p>
+        
+            QUT (Queensland University of Technology): Masters IT (Telecommunications & Security): 
+        </p>
+        <h3>Complete List</h3>
+        
+            <ul>
+                <li>Masters in I.T. from QUT (with a focus on telecommunications and security)</li>
+                <li>B. Sc. (Hons) from Queensland University </li>
+                <li>Certificate in Software Quality</li>
+                <li>Graduate Certificate of Software Engineering from the University of Queensland</li>
+            </ul>
+        
+    </section>
+
+    <section>
+        <hr>
+        <h2>Contact Details</h2>
+        <p>
+            PO Box 857,<br/>
+            Coolum Beach,<br/>
+            Brisbane,<br/>
+            QLD 4573.<br/>
+            AUSTRALIA.<br/>
+            <br/>
+            Telephone:        +61 (0) 413 208 746
+            <br/>
+            donrcameron (at) gmail.com
+            <br/>
+        </p>
+    </section>
+    <section>
+        <hr>
+        <h2>Internet</h2>    
+        <p>    
+            <br>
+            <a href="https://www.net-analysis.com">Professional Website:  https://www.net-analysis.com</a>
+            <br>
+            <a href="https://www.linkedin.com/in/donrcameron/"> LinkedIn Profile: https://www.linkedin.com/in/donrcameron/</a>
+            <br>
+            <a href="https://coolum001.github.io/"> Technical Blog:  https://coolum001.github.io/</a>
+            
+        </p>
+        <hr/>
+    </section>
+
+    <footer>
+    <p>
+        Copyright © Don Cameron, 2020. www.net-analysis.com<br/> 
+        Page Load Count: <span id="loadcount">Not Available</span><br/>
+
+    </p>
+        
+    </footer>
+</body>
+</html>

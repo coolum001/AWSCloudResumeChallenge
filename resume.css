@@ -1,0 +1,36 @@
+<style>
+
+    * {
+        font-family: Arial, Helvetica, sans-serif;    
+    }
+
+    body {
+        background-color: linen;
+        font-family: Arial, Helvetica, sans-serif;
+        max-width: 800px;  
+    }   
+    
+    header {
+        text-align: left;
+        color: darkblue;
+        background-color:tan;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    footer {
+        text-align: left;
+        background-color:tan;
+        font-size: 80%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    p { 
+        margin-left: 80px;
+    }
+
+    li { 
+        margin-left: 80px;
+    }
+
+
+</style>
