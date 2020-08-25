@@ -13,7 +13,7 @@
         // Note call is synchronous, delays should be minimal
         var req = new XMLHttpRequest();  
         req.open('GET', 
-        " https://pj00kkggj8.execute-api.ap-southeast-2.amazonaws.com/beta", 
+        "https://byhpjqrzn9.execute-api.ap-southeast-2.amazonaws.com/Prod/counter/", 
         false);   
         req.send();  
         if(req.status == 200)
@@ -23,7 +23,7 @@
                 console.log(req.responseText.substring(1, len-1));
                 // set field in footer
                 document.getElementById("loadcount").textContent = 
-                    req.responseText.substring(10, len-2);
+                    req.responseText.substring(1, len-1);
             }
         else {
             // NOT OK response, so log in console
